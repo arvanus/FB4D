@@ -406,7 +406,7 @@ var
 begin
   inherited Create;
   fJSONObjOwned := false;
-  fJSONObj := JSONObj;
+  fJSONObj := JSONObj.Clone as TJSONObject;
   if fJSONObj.Count < 3 then
     raise EFirestoreDocument.Create(rsInvalidDocNodeCountLess3);
   if not fJSONObj.TryGetValue('name', fDocumentName) then
